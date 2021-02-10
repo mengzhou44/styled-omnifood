@@ -10,6 +10,7 @@ const Button = styled.a`
      text-decoration: none; 
      border-radius: 200px; 
      margin-right: 10px; 
+     cursor: pointer;
 
      ${(props: any) => {
 
