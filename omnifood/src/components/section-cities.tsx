@@ -28,14 +28,6 @@ const Cities = styled.section`
         justify-content: flex-start;
      }
 
-     .icon-small {
-        margin-right: 3px; 
-        display: inline-block;
-        width: 30px; 
-        text-align:center;
-        color: ${primaryColor};
-        font-size: 120%;
-     }
 
      a:link, a:visited {
          color: ${primaryColor};

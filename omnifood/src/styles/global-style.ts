@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   section {
-     margin: 80px 0; 
+     padding: 80px 0; 
   }
 
   .row {
@@ -58,7 +58,14 @@ const GlobalStyle = createGlobalStyle`
     font-size: 110%large;
   }
 
-
+  .icon-small {
+        margin-right: 3px; 
+        display: inline-block;
+        width: 30px; 
+        text-align:center;
+        color: ${primaryColor};
+        font-size: 120%;
+   }
 
   .clearfix {zoom: 1;}
   .clearfix:after {

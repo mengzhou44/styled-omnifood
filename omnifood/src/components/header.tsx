@@ -11,6 +11,7 @@ const Wrapper = styled.header<HeaderProps>`
      background-image: linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0,0.7)), url(${(props: any)=> props.background});
      background-size: cover;
      background-position: center;
+     background-attachment: fixed; 
      height: 100vh;
 
      .text-box {
