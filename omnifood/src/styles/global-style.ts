@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import {fontFamily} from './variables'
+import {fontFamily, primaryColor} from './variables'
  
 const GlobalStyle = createGlobalStyle`
   *{
@@ -16,19 +16,57 @@ const GlobalStyle = createGlobalStyle`
      text-rendering: optimizeLegibility;
   }
 
+  section {
+     margin: 80px 0; 
+  }
+
   .row {
     max-width: 1140px;
     margin: 0px auto;
   }
   
+  h1, h2, h3 { 
+     font-weight: 300; 
+     text-transform: uppercase; 
+  }
+
   h1 {
-     margin: 0px; 
      color: #fff;
      font-size: 200%;
-     font-weight: 300; 
-     text-transform: uppercase;
      letter-spacing: 1px;
      word-spacing: 3px; 
+  }
+
+  h2 {
+     font-size: 160%;
+     letter-spacing: 1px;
+     word-spacing: 2px; 
+     text-align: center;
+  }
+
+  h2:after {
+        display: block;
+        height: 2px; 
+        background-color: ${primaryColor};
+        content: '';
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 30px; 
+  }
+
+  h3 {
+    font-size: 110%large;
+  }
+
+
+
+  .clearfix {zoom: 1;}
+  .clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
   }
 
 `
