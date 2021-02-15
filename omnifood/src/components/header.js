@@ -165,8 +165,7 @@ const Wrapper = styled.header`
 `
  
 const Header = function ({history, floatingNav}) {
-      const [showMobileNav, setShowMobileNav]  = useState(false)
-    
+     
       function renderLogoImage() {
             if (floatingNav === false) {
                 return <img className='logo' src='./images/logo-white.png' alt='logo' />
@@ -179,65 +178,20 @@ const Header = function ({history, floatingNav}) {
            return 'floating'
        }
 
-       function  Navigator() {
-
-            function getNavList() {
-                return <>
-                        <li><a href='#features'>Food delivery</a></li>
-                        <li><a href='#works'>How it works</a></li>
-                        <li><a href='#cities'>Our cities</a></li>
-                        <li><a href='#plans'>Sign up</a></li>
-                </>
-            }
-        
-            if (showMobileNav === false)  {
-                return <nav className='nav'>
-                        <ul>
-                            {getNavList()}
-                            </ul>
-                            <a className='mobile-nav-icon' onClick= {()=> setShowMobileNav(true)}><i className='ion-navicon-round'></i></a>
-                    </nav>
-            }
-            
-        return   <nav className='mobile-nav'>
-                     <a  className='mobile-nav-close' onClick= {()=> {
-                         setShowMobileNav(false)
-                     }
-                         
-                     }><i className='ion-close-round'></i></a>
-                     <ul>
-                          {getNavList()}
-                     </ul>
-              </nav>    
-    }
-    
        return  <Wrapper background ='./images/hero.jpg'>
-             
                  <div className={getFloatingClassName()}>
                         {renderLogoImage()}
-                        <Navigator />
+                        <Navigator  history={history} />
                  </div>
                  
                 <div className='text-box'>
                     <h1>Goodbye junk food. <br/> Hello super healthy meals.</h1>
                     <Button  kind='full' onClick={()=> {
-                         	$('html, body').animate(
-								{
-									scrollTop: $('#plans')?.offset()?.top
-								},
-								1000
-							)
-                            history.push('/#plans')
+                            navigateToSection('plans', history)
                     }}>I’m hungry </Button>
                     <Button kind='ghost' 
                      onClick={()=> {
-                        $('html, body').animate(
-                           {
-                               scrollTop: $('#features')?.offset()?.top
-                           },
-                           1000
-                       )
-                       history.push('/#features')
+                        navigateToSection('features', history)
                     }}
                     >          
                         Show me more </Button>
@@ -246,5 +200,50 @@ const Header = function ({history, floatingNav}) {
      </Wrapper>
         
 }
+
+function navigateToSection(section, history) {
+    $('html, body').animate(
+        {
+            scrollTop: $(`#${section}`)?.offset()?.top
+        },
+        1000
+    )
+    history.push(`/#${section}`)
+}
+
+
+function  Navigator({history}) {
+    const [showMobileNav, setShowMobileNav]  = useState(false)
+    
+    function getNavList() {
+        return <>
+                <li><a href='#' onClick={()=> navigateToSection('features', history)}>Food delivery</a></li>
+                <li><a href='#works' onClick={()=> navigateToSection('works', history)}>How it works</a></li>
+                <li><a href='#cities' onClick={()=> navigateToSection('cities', history)}>Our cities</a></li>
+                <li><a href='#plans' onClick={()=> navigateToSection('plans', history)}>Sign up</a></li>
+        </>
+    }
+
+    if (showMobileNav === false)  {
+        return <nav className='nav'>
+                <ul>
+                    {getNavList()}
+                    </ul>
+                    <a className='mobile-nav-icon' onClick= {()=> setShowMobileNav(true)}><i className='ion-navicon-round'></i></a>
+            </nav>
+    }
+    
+return   <nav className='mobile-nav'>
+             <a  className='mobile-nav-close' onClick= {()=> {
+                 setShowMobileNav(false)
+             }
+                 
+             }><i className='ion-close-round'></i></a>
+             <ul>
+                  {getNavList()}
+             </ul>
+      </nav>    
+}
+
 
 export default withRouter(Header)

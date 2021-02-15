@@ -10,6 +10,8 @@ function App() {
             <Route exact path='/' component={HomePage} />
             <Route exact path='/#plans' component={HomePage} />
             <Route exact path='/#features' component={HomePage} />
+            <Route exact path='/#cities' component={HomePage} />
+            <Route exact path='/#works' component={HomePage} />
             <Redirect to='/' />
           </Switch>
       </div>
