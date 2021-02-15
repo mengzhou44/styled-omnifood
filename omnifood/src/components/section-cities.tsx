@@ -1,3 +1,4 @@
+import {memo} from 'react'
 import styled from 'styled-components'
 
 import  {primaryColor} from '../styles/variables'
@@ -41,10 +42,17 @@ const Cities = styled.section`
             border-bottom: transparent;
      }
 
+     @media only screen and (max-width: 1023px) {
+        .icon-small {
+            width: 17px; 
+            margin-right: 5px; 
+        }
+     }
+
 `
 
-export default function  SectionCities() {
-      return <Cities>
+const SectionCities = function () {
+      return <Cities   id='cities' >
            <div className='row'>
                 <h2>We're currently in these cities</h2>
            </div>
@@ -121,3 +129,5 @@ export default function  SectionCities() {
 
       </Cities>
 }
+
+export default memo(SectionCities)

@@ -1,12 +1,21 @@
 import { createGlobalStyle } from 'styled-components'
 
 import {fontFamily, primaryColor} from './variables'
- 
+
+import './normalize.css'
+import './animate.css'
+import './grid.css'
+
 const GlobalStyle = createGlobalStyle`
+
   *{
       padding: 0px; 
       margin: 0px; 
       box-sizing: border-box;
+  }
+
+  *:focus {
+           outline: none;
   }
   html{
      color: #555; 
@@ -35,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
      font-size: 200%;
      letter-spacing: 1px;
      word-spacing: 3px; 
+     line-height: 145%;
   }
 
   h2 {
@@ -76,6 +86,37 @@ const GlobalStyle = createGlobalStyle`
     visibility: hidden;
   }
 
+  @media only screen and (max-width: 1200px) {
+        .row { padding: 0 2%; }
+  }
+
+  @media only screen and (max-width: 1023px) {
+      html{
+         font-size: 16px; 
+     }
+     section {
+        padding: 60px 0; 
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+     h1 {
+        font-size: 180%;
+     }
+
+     h2 {
+        font-size: 150%;
+     }
+
+     .col {
+        width:  100%;
+        margin: 0; 
+        margin-bottom: 4%;
+     } 
+  
+   }
+
 `
 
 export default GlobalStyle
+

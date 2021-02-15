@@ -30,7 +30,7 @@ const Plans = styled.section`
         color: ${primaryColor};
         span {
             font-size: 30%;
-            font-weight: 300; 
+            font-weight: 600; 
         }
     }
 
@@ -54,11 +54,18 @@ const Plans = styled.section`
         padding: 5px 0;
         font-size: 80%;
     }
+
+    @media only screen and (max-width: 1023px) {
+        .plan-box {
+            width: 100%;
+            margin-left: 0%;
+        }
+     }
   
 `
 
 export default function SectionPlans() {
-     return <Plans>
+     return <Plans id='plans'>
          <div className='row'>
              <h2>Start eating healthy today</h2>
          </div>
@@ -79,7 +86,7 @@ export default function SectionPlans() {
                             </ul>
                         </div>
                         <div>
-                        <Button type='full'>Sign up now</Button>
+                        <Button kind='full'>Sign up now</Button>
                         </div>
               </div>
               </div>
@@ -99,7 +106,7 @@ export default function SectionPlans() {
                             </ul>
                         </div>
                         <div>
-                             <Button type='ghost'>Sign up now</Button>
+                             <Button kind='ghost'>Sign up now</Button>
                         </div>
               </div>
               </div>
@@ -119,7 +126,7 @@ export default function SectionPlans() {
                             </ul>
                         </div>
                         <div>
-                            <Button type='ghost'>Sign up now</Button>
+                            <Button kind='ghost'>Sign up now</Button>
                         </div>
               </div>
               </div>

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import { primaryColor } from '../styles/variables'
-
-
+ 
 
 interface  TestimonialsProps {
     background: string

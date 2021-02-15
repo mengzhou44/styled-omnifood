@@ -1,4 +1,6 @@
+import  {useState} from 'react'
 import styled from 'styled-components'
+import {Waypoint} from 'react-waypoint'
 import {primaryColor} from '../styles/variables'
 
 
@@ -36,17 +38,49 @@ const Section = styled.section`
         line-height: 145%;
     }
 
+    .waypoint {
+        opacity: 0;  
+    }
+
+    .waypoint.animated {
+        opacity: 1;  
+        animation-duration: 1s; 
+    }
+
+    @media only screen and (max-width: 767px) {
+        .long-copy {
+            width: 100%;
+            margin-left: 0%;
+        }
+     }
+
 `
 
 export function SectionFeatures () {
-       return <Section>
+       const [endterSection, setEnterSection] = useState(false)
+
+       function getFeaturesClass() {
+            if (endterSection=== true) {
+                return 'row waypoint animated fadeIn'
+            }
+
+            return 'row waypoint'
+       }
+       return <Section id='features'>
            <div className='row'>
                <h2>Get food fast &mdash; not fast food</h2>
                <p className='long-copy'>
                     Hello, we're Omnifood, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
                 </p>
            </div>
-           <div className='row'>
+       
+           <Waypoint
+                 bottomOffset={50}
+                 onEnter={()=> setEnterSection(true)}
+           />
+
+           <div className= {getFeaturesClass()}>
+             
                <div className='col span-1-of-4 box'>
                    <i className="ion-ios-infinite-outline icon-big"></i>
                     <h3>Up to 365 days/year</h3>
