@@ -8,14 +8,16 @@ function App() {
         <div style={{ height: '100%' }}>
           <Switch>   
             <Route exact path='/' component={HomePage} />
-            <Route exact path='/plans' component={HomePage} />
-            <Route exact path='/features' component={HomePage} />
+            <Route exact path='/#plans' component={HomePage} />
+            <Route exact path='/#features' component={HomePage} />
             <Redirect to='/' />
           </Switch>
       </div>
     </Router>  
 }
 
+
+ 
 export default App;
 
  

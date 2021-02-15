@@ -69,7 +69,8 @@ const Wrapper = styled.header`
          left:0; 
          right: 0;
          width: 100%;
-         background-color: rgba(255,255,255,1);
+         background-color:  rgba(255,255,255,.98);
+         z-index: 1;
          box-shadow: 0 2px 2px #ccc;
          padding: 10px; 
          display: flex ;
@@ -226,7 +227,7 @@ const Header = function ({history, floatingNav}) {
 								},
 								1000
 							)
-                            history.push('/plans')
+                            history.push('/#plans')
                     }}>I’m hungry </Button>
                     <Button kind='ghost' 
                      onClick={()=> {
@@ -236,10 +237,9 @@ const Header = function ({history, floatingNav}) {
                            },
                            1000
                        )
-                       history.push('/features')
+                       history.push('/#features')
                     }}
-                    >
-                        
+                    >          
                         Show me more </Button>
                 </div>
                               
